@@ -26,7 +26,7 @@ namespace ZombieLunging
 		public void OnConsoleCommand(SendingConsoleCommandEventArgs ev)
 		{
 			if (ev.Player.Role != RoleType.Scp0492) return;
-			if (ev.Name.ToLower() == "lunge")
+			if (ev.Name.ToLower() == "especial")
 			{
 				if (ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0)
 				{
@@ -36,12 +36,12 @@ namespace ZombieLunging
 				{
 					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(5, Plugin.instance.Config.LungeMessage);
 					ev.Player.ReferenceHub.GetComponent<CustomZombie>().ActivateSpeedUp();
-					ev.ReturnMessage = !string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage) ? Plugin.instance.Config.LungeMessage : "You have activated your lunge!";
+					ev.ReturnMessage = !string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage) ? Plugin.instance.Config.LungeMessage : "Has activado tu arremetimiento!";
 					ev.Color = "Green";
 				}
 				else
 				{
-					ev.ReturnMessage = "You are already lunging!";
+					ev.ReturnMessage = "Estas listo para arremeter de nuevo!";
 					ev.Color = "Red";
 				}
 			}
