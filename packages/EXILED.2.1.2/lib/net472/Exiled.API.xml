@@ -57,6 +57,46 @@
             Indicates that the player has been authenticated through an unknown provider.
             </summary>
         </member>
+        <member name="T:Exiled.API.Enums.ElevatorType">
+            <summary>
+            The unique type of elevator.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.Unknown">
+            <summary>
+            Unknown elevator Type.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.GateA">
+            <summary>
+            Entrance Gate A elevator.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.GateB">
+            <summary>
+            Entrance Gate B elevator.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.Nuke">
+            <summary>
+            Heavy Containment Zone Nuke elevator.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.Scp049">
+            <summary>
+            Heavy Containment Zone SCP 049 elevator.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.LczA">
+            <summary>
+            Light Containment Zone checkpoint A elevator.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.ElevatorType.LczB">
+            <summary>
+            Light Containment Zone checkpoint B elevator.
+            </summary>
+        </member>
         <member name="T:Exiled.API.Enums.EnvironmentType">
             <summary>
             A set of environment types.
@@ -80,6 +120,31 @@
         <member name="F:Exiled.API.Enums.EnvironmentType.Ptb">
             <summary>
             The ptb environment, for Public Test Builds.
+            </summary>
+        </member>
+        <member name="T:Exiled.API.Enums.LeadingTeam">
+            <summary>
+            The team that is winning the round.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.LeadingTeam.FacilityForces">
+            <summary>
+            Represents Scientists, Guards, and NTF.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.LeadingTeam.ChaosInsurgency">
+            <summary>
+            Represents Class D and Chaos Insurgency.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.LeadingTeam.Anomalies">
+            <summary>
+            Represents SCP.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.LeadingTeam.Draw">
+            <summary>
+            Represents a draw.
             </summary>
         </member>
         <member name="T:Exiled.API.Enums.PluginPriority">
@@ -1677,6 +1742,12 @@
             Gets a <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Exiled.API.Features.Player"/> in the <see cref="T:Exiled.API.Features.Room"/>.
             </summary>
         </member>
+        <member name="M:Exiled.API.Features.Room.TurnOffLights(System.Single)">
+            <summary>
+            Flickers the room's lights off for a duration.
+            </summary>
+            <param name="duration">Duration in seconds.</param>
+        </member>
         <member name="T:Exiled.API.Features.Round">
             <summary>
             A set of tools to handle the round more easily.
@@ -1715,6 +1786,16 @@
         <member name="M:Exiled.API.Features.Round.Start">
             <summary>
             Start the round.
+            </summary>
+        </member>
+        <member name="T:Exiled.API.Features.Scp096">
+            <summary>
+            Represents the general role of Scp096.
+            </summary>
+        </member>
+        <member name="P:Exiled.API.Features.Scp096.MaxShield">
+            <summary>
+            Gets or Sets a value indicating the max shield amount Scp096 can have.
             </summary>
         </member>
         <member name="T:Exiled.API.Features.Scp914">

@@ -76,7 +76,7 @@ namespace ZombieLunging
 			{
 				victims++;
 				ev.Target.ReferenceHub.GetComponent<PlayerSpeeds>().ActivateSlowdown();
-				if (!string.IsNullOrEmpty(Plugin.instance.Config.VictimMessage)) ev.Target.Broadcast(5, Plugin.instance.Config.VictimMessage);
+				if (!string.IsNullOrEmpty(Plugin.instance.Config.VictimMessage)) ev.Target.Broadcast(7, Plugin.instance.Config.VictimMessage);
 			}
 		}
 

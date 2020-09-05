@@ -1,4 +1,6 @@
 using System;
+using Exiled.API.Extensions;
+using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using Object = UnityEngine.Object;
 
@@ -11,7 +13,7 @@ namespace ZombieLunging
 
 		public void OnSetClass(ChangingRoleEventArgs ev)
 		{
-			if (ev.Player.Nickname == "Dedicated Server") return;
+			if (ev.Player.Nickname == "Dedicated Server")return;
 
 			PlayerSpeeds component1 = ev.Player.ReferenceHub.gameObject.GetComponent<PlayerSpeeds>();
 			if ((Object)component1 != (Object)null) component1.Destroy();
@@ -26,7 +28,7 @@ namespace ZombieLunging
 		public void OnConsoleCommand(SendingConsoleCommandEventArgs ev)
 		{
 			if (ev.Player.Role != RoleType.Scp0492) return;
-			if (ev.Name.ToLower() == "especial")
+			if (ev.Name.ToLower() == "zr")
 			{
 				if (ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0)
 				{

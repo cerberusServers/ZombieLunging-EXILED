@@ -170,6 +170,11 @@
             Gets a value indicating whether bans should be logged or not.
             </summary>
         </member>
+        <member name="P:Exiled.Events.Config.Scp096MaxShieldAmount">
+            <summary>
+            Gets or sets a value indicating the max shield amount for Scp096.
+            </summary>
+        </member>
         <member name="T:Exiled.Events.EventArgs.ActivatingEventArgs">
             <summary>
             Contains all informations before a player activates SCP-914.
@@ -218,6 +223,45 @@
         <member name="P:Exiled.Events.EventArgs.ActivatingWarheadPanelEventArgs.IsAllowed">
             <summary>
             Gets or sets a value indicating whether the event can be executed or not.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.EventArgs.AddingTargetEventArgs">
+            <summary>
+            Contains all information before adding a target to SCP-096.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.AddingTargetEventArgs.#ctor(Exiled.API.Features.Player,Exiled.API.Features.Player,System.Int32,System.Single)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.AddingTargetEventArgs"/> class.
+            </summary>
+            <param name="scp096"><see cref="T:Exiled.API.Features.Player"/> who is SCP-096.</param>
+            <param name="target"><see cref="T:Exiled.API.Features.Player"/> who is the target to be added.</param>
+            <param name="ahpToAdd"><see cref="T:System.Int32"/> amount of temporary health to add to <see cref="P:Exiled.Events.EventArgs.AddingTargetEventArgs.Scp096"/>.</param>
+            <param name="enrageTimeToAdd"><see cref="T:System.Single"/> amount of time to add to <see cref="P:Exiled.Events.EventArgs.AddingTargetEventArgs.Scp096"/>'s enrage timer. Note: This does not affect anything if he doesn't already have any targets before this event is called.</param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.AddingTargetEventArgs.Scp096">
+            <summary>
+            Gets the <see cref="T:Exiled.API.Features.Player"/> object of the SCP-096.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.AddingTargetEventArgs.Target">
+            <summary>
+            Gets the <see cref="T:Exiled.API.Features.Player"/> being added as a target.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.AddingTargetEventArgs.IsAllowed">
+            <summary>
+            Gets or sets a value indicating whether gets or sets whether or not the target is allowed to be added.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.AddingTargetEventArgs.AhpToAdd">
+            <summary>
+            Gets or sets the amount of AHP to add to 096 if <see cref="P:Exiled.Events.EventArgs.AddingTargetEventArgs.IsAllowed"/> is true.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.AddingTargetEventArgs.EnrageTimeToAdd">
+            <summary>
+            Gets or sets how much time is added to <see cref="P:Exiled.Events.EventArgs.AddingTargetEventArgs.Scp096"/>'s enrage timer if <see cref="P:Exiled.Events.EventArgs.AddingTargetEventArgs.IsAllowed"/> is true.
             </summary>
         </member>
         <member name="T:Exiled.Events.EventArgs.AnnouncingDecontaminationEventArgs">
@@ -717,13 +761,19 @@
             Contains all informations before ending a round.
             </summary>
         </member>
-        <member name="M:Exiled.Events.EventArgs.EndingRoundEventArgs.#ctor(RoundSummary.LeadingTeam,System.Boolean,System.Boolean)">
+        <member name="M:Exiled.Events.EventArgs.EndingRoundEventArgs.#ctor(Exiled.API.Enums.LeadingTeam,RoundSummary.SumInfo_ClassList,System.Boolean,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.EndingRoundEventArgs"/> class.
             </summary>
+            <param name="classList"><inheritdoc cref="T:RoundSummary.SumInfo_ClassList"/></param>
             <param name="leadingTeam"><inheritdoc cref="P:Exiled.Events.EventArgs.EndingRoundEventArgs.LeadingTeam"/></param>
             <param name="isRoundEnded"><inheritdoc cref="P:Exiled.Events.EventArgs.EndingRoundEventArgs.IsRoundEnded"/></param>
             <param name="isAllowed"><inheritdoc cref="P:Exiled.Events.EventArgs.EndingRoundEventArgs.IsAllowed"/></param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.EndingRoundEventArgs.ClassList">
+            <summary>
+            Gets or sets the round summary class list.
+            </summary>
         </member>
         <member name="P:Exiled.Events.EventArgs.EndingRoundEventArgs.LeadingTeam">
             <summary>
@@ -1215,15 +1265,16 @@
         </member>
         <member name="T:Exiled.Events.EventArgs.InteractingElevatorEventArgs">
             <summary>
-            Contains all informations before a player interacts with an elevator.
+            Contains all information before a player interacts with an elevator.
             </summary>
         </member>
-        <member name="M:Exiled.Events.EventArgs.InteractingElevatorEventArgs.#ctor(Exiled.API.Features.Player,Lift.Elevator,System.Boolean)">
+        <member name="M:Exiled.Events.EventArgs.InteractingElevatorEventArgs.#ctor(Exiled.API.Features.Player,Lift.Elevator,Lift,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.InteractingElevatorEventArgs"/> class.
             </summary>
             <param name="player"><inheritdoc cref="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Player"/></param>
             <param name="elevator"><inheritdoc cref="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Elevator"/></param>
+            <param name="lift"><inheritdoc cref="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Type"/></param>
             <param name="isAllowed"><inheritdoc cref="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.IsAllowed"/></param>
         </member>
         <member name="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Player">
@@ -1234,6 +1285,16 @@
         <member name="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Elevator">
             <summary>
             Gets the <see cref="T:Lift.Elevator"/> instance.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Status">
+            <summary>
+            Gets the <see cref="T:Lift"/> current <see cref="T:Lift.Status"/>.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.Type">
+            <summary>
+            Gets the <see cref="T:Exiled.API.Enums.ElevatorType"/>.
             </summary>
         </member>
         <member name="P:Exiled.Events.EventArgs.InteractingElevatorEventArgs.IsAllowed">
@@ -1729,6 +1790,50 @@
             Disallows the connection without sending any reason. Should only be used when the connection has already been terminated by the plugin itself.
             </summary>
         </member>
+        <member name="T:Exiled.Events.EventArgs.ReceivingEffectEventArgs">
+            <summary>
+            Contains all information before a player receives a <see cref="T:CustomPlayerEffects.PlayerEffect"/>.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.ReceivingEffectEventArgs.#ctor(Exiled.API.Features.Player,CustomPlayerEffects.PlayerEffect,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.ReceivingEffectEventArgs"/> class.
+            </summary>
+            <param name="player">The <see cref="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.Player"/> receiving the effect.</param>
+            <param name="effect">The <see cref="T:CustomPlayerEffects.PlayerEffect"/> being added to the player.</param>
+            <param name="state">The state the effect is being changed to.</param>
+            <param name="currentState">The current state of the effect being changed.</param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.Player">
+            <summary>
+            Gets the <see cref="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.Player"/> receiving the effect.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.Effect">
+            <summary>
+            Gets the <see cref="T:CustomPlayerEffects.PlayerEffect"/> being received.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.IsAllowed">
+            <summary>
+            Gets or sets a value indicating whether or not the effect will be allowed to be applied.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.Duration">
+            <summary>
+            Gets or sets a value indicating how long the effect will last.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.State">
+            <summary>
+            Gets or sets the value of the new state of the effect. Setting this to 0 is the same as setting IsAllowed to false.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ReceivingEffectEventArgs.CurrentState">
+            <summary>
+            Gets the value of the current state of this effect on the player.
+            </summary>
+        </member>
         <member name="T:Exiled.Events.EventArgs.RecontainedEventArgs">
             <summary>
             Contains informations after SCP-079 recontainming.
@@ -1856,10 +1961,10 @@
         </member>
         <member name="T:Exiled.Events.EventArgs.RoundEndedEventArgs">
             <summary>
-            Contains all informations before ending a round.
+            Contains all information before ending a round.
             </summary>
         </member>
-        <member name="M:Exiled.Events.EventArgs.RoundEndedEventArgs.#ctor(RoundSummary.LeadingTeam,RoundSummary.SumInfo_ClassList,System.Int32)">
+        <member name="M:Exiled.Events.EventArgs.RoundEndedEventArgs.#ctor(Exiled.API.Enums.LeadingTeam,RoundSummary.SumInfo_ClassList,System.Int32)">
             <summary>
             Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.RoundEndedEventArgs"/> class.
             </summary>
@@ -2219,6 +2324,67 @@
             Gets or sets a value indicating whether the event can be executed or not.
             </summary>
         </member>
+        <member name="T:Exiled.Events.EventArgs.StartingSpeakerEventArgs">
+            <summary>
+            Contains all informations before a player triggers a speaker through SCP-079.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.StartingSpeakerEventArgs.#ctor(Exiled.API.Features.Player,Exiled.API.Features.Room,System.Single,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.StartingSpeakerEventArgs"/> class.
+            </summary>
+            <param name="player"><inheritdoc cref="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.Player"/></param>
+            <param name="room"><inheritdoc cref="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.Room"/></param>
+            <param name="apDrain"><inheritdoc cref="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.APDrain"/></param>
+            <param name="isAllowed"><inheritdoc cref="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.IsAllowed"/></param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.Player">
+            <summary>
+            Gets the player who's triggering the speaker through SCP-079.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.Room">
+            <summary>
+            Gets the room where the camera is located, that SCP-079 is triggering.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.APDrain">
+            <summary>
+            Gets or sets the amount of AP that will be removed for the first time when using speakers through SCP-079.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartingSpeakerEventArgs.IsAllowed">
+            <summary>
+            Gets or sets a value indicating whether the event can be executed or not.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.EventArgs.StartPryingGateEventArgs">
+            <summary>
+            Contains all information before SCP-096 starts prying a gate open.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.StartPryingGateEventArgs.#ctor(Exiled.API.Features.Player,Door)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.StartPryingGateEventArgs"/> class.
+            </summary>
+            <param name="scp096">The Scp096 who is triggering the event.</param>
+            <param name="gate">The gate to be pried open.</param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartPryingGateEventArgs.Player">
+            <summary>
+            Gets the <see cref="P:Exiled.Events.EventArgs.StartPryingGateEventArgs.Player"/> object of the SCP-096.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartPryingGateEventArgs.Gate">
+            <summary>
+            Gets the <see cref="T:Door"/> to be pried open.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StartPryingGateEventArgs.IsAllowed">
+            <summary>
+            Gets or Sets a value indicating whether or not they should be allowed to pry the gate open.
+            </summary>
+        </member>
         <member name="T:Exiled.Events.EventArgs.StoppingEventArgs">
             <summary>
             Contains all informations before stopping the warhead.
@@ -2258,6 +2424,34 @@
         <member name="P:Exiled.Events.EventArgs.StoppingMedicalItemEventArgs.Cooldown">
             <summary>
             Gets the medical item cooldown.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.EventArgs.StoppingSpeakerEventArgs">
+            <summary>
+            Contains all informations before a player stopping a speaker through SCP-079.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.#ctor(Exiled.API.Features.Player,Exiled.API.Features.Room,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.StoppingSpeakerEventArgs"/> class.
+            </summary>
+            <param name="player"><inheritdoc cref="P:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.Player"/></param>
+            <param name="room"><inheritdoc cref="P:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.Room"/></param>
+            <param name="isAllowed"><inheritdoc cref="P:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.IsAllowed"/></param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.Player">
+            <summary>
+            Gets the player who's stopping the speaker through SCP-079.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.Room">
+            <summary>
+            Gets the room where the camera is located, that SCP-079 is stopping.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.StoppingSpeakerEventArgs.IsAllowed">
+            <summary>
+            Gets or sets a value indicating whether the event can be executed or not.
             </summary>
         </member>
         <member name="T:Exiled.Events.EventArgs.SyncingDataEventArgs">
@@ -2915,6 +3109,11 @@
             Invoked before ejecting a generator.
             </summary>
         </member>
+        <member name="E:Exiled.Events.Handlers.Player.ReceivingEffect">
+            <summary>
+            Invoked before receiving an effect.
+            </summary>
+        </member>
         <member name="M:Exiled.Events.Handlers.Player.OnPreAuthenticating(Exiled.Events.EventArgs.PreAuthenticatingEventArgs)">
             <summary>
             Invoked before pre-authenticating a player.
@@ -3185,6 +3384,12 @@
             </summary>
             <param name="ev">The <see cref="T:Exiled.Events.EventArgs.EjectingGeneratorTabletEventArgs"/> instance.</param>
         </member>
+        <member name="M:Exiled.Events.Handlers.Player.OnReceivingEffect(Exiled.Events.EventArgs.ReceivingEffectEventArgs)">
+            <summary>
+            Called before receiving an effect.
+            </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.ReceivingEffectEventArgs"/> instance.</param>
+        </member>
         <member name="T:Exiled.Events.Handlers.Round">
             <summary>
             Handles some round clean-up events and some others related to players.
@@ -3254,6 +3459,16 @@
             Invoked before triggering a door with SCP-079.
             </summary>
         </member>
+        <member name="E:Exiled.Events.Handlers.Scp079.StartingSpeaker">
+            <summary>
+            Invoked before triggering a speaker with SCP-079.
+            </summary>
+        </member>
+        <member name="E:Exiled.Events.Handlers.Scp079.StoppingSpeaker">
+            <summary>
+            Invoked before stopping a speaker with SCP-079.
+            </summary>
+        </member>
         <member name="E:Exiled.Events.Handlers.Scp079.Recontained">
             <summary>
             Invoked after Scp079 recontainment.
@@ -3283,6 +3498,18 @@
             </summary>
             <param name="ev">The <see cref="T:Exiled.Events.EventArgs.InteractingDoorEventArgs"/> instance.</param>
         </member>
+        <member name="M:Exiled.Events.Handlers.Scp079.OnStartingSpeaker(Exiled.Events.EventArgs.StartingSpeakerEventArgs)">
+            <summary>
+            Invoked before interacting with a speaker with SCP-079.
+            </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.StartingSpeakerEventArgs"/> instance.</param>
+        </member>
+        <member name="M:Exiled.Events.Handlers.Scp079.OnStoppingSpeaker(Exiled.Events.EventArgs.StoppingSpeakerEventArgs)">
+            <summary>
+            Invoked before stopping with a speaker with SCP-079.
+            </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.StoppingEventArgs"/> instance.</param>
+        </member>
         <member name="M:Exiled.Events.Handlers.Scp079.OnRecontained(Exiled.Events.EventArgs.RecontainedEventArgs)">
             <summary>
             Called after 079 recontainment.
@@ -3304,6 +3531,16 @@
             Invoked before calming down with SCP-096.
             </summary>
         </member>
+        <member name="E:Exiled.Events.Handlers.Scp096.AddingTarget">
+            <summary>
+            Invoked before adding a target to SCP-096.
+            </summary>
+        </member>
+        <member name="E:Exiled.Events.Handlers.Scp096.StartPryingGate">
+            <summary>
+            Invoked before Scp096 starts prying open a gate.
+            </summary>
+        </member>
         <member name="M:Exiled.Events.Handlers.Scp096.OnEnraging(Exiled.Events.EventArgs.EnragingEventArgs)">
             <summary>
             Invoked before enraging with SCP-096.
@@ -3315,6 +3552,18 @@
             Invoked before calming down with SCP-096.
             </summary>
             <param name="ev">The <see cref="T:Exiled.Events.EventArgs.CalmingDownEventArgs"/> instance.</param>
+        </member>
+        <member name="M:Exiled.Events.Handlers.Scp096.OnAddingTarget(Exiled.Events.EventArgs.AddingTargetEventArgs)">
+            <summary>
+            Invoked before adding a target to SCP-096.
+            </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.AddingTargetEventArgs"/> instance.</param>
+        </member>
+        <member name="M:Exiled.Events.Handlers.Scp096.OnStartPryingGate(Exiled.Events.EventArgs.StartPryingGateEventArgs)">
+            <summary>
+            Invoked before Scp096 starts prying open a gate.
+            </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.StartPryingGateEventArgs"/> instance.</param>
         </member>
         <member name="T:Exiled.Events.Handlers.Scp106">
             <summary>
@@ -3753,7 +4002,7 @@
         </member>
         <member name="T:Exiled.Events.Patches.Events.Player.Left">
             <summary>
-            Patches <see cref="M:ReferenceHub.OnDestroy"/>.
+            Patches <see cref="M:CustomNetworkManager.OnServerDisconnect(Mirror.NetworkConnection)"/>.
             Adds the <see cref="E:Exiled.Events.Handlers.Player.Left"/> event.
             </summary>
         </member>
@@ -3774,6 +4023,12 @@
             Handle the player connection.
             </summary>
             <param name="request">The <see cref="T:LiteNetLib.ConnectionRequest"/> instance.</param>
+        </member>
+        <member name="T:Exiled.Events.Patches.Events.Player.ReceivingStatusEffect">
+            <summary>
+            Patches the <see cref="M:CustomPlayerEffects.PlayerEffect.ServerChangeIntensity(System.Byte)"/> method.
+            Adds the <see cref="E:Exiled.Events.Handlers.Player.ReceivingEffect"/> event.
+            </summary>
         </member>
         <member name="T:Exiled.Events.Patches.Events.Player.ReloadingWeapon">
             <summary>
@@ -3874,7 +4129,7 @@
         <member name="T:Exiled.Events.Patches.Events.Scp079.Interacting">
             <summary>
             Patches <see cref="M:Scp079PlayerScript.CallCmdInteract(System.String,UnityEngine.GameObject)"/>.
-            Adds the <see cref="T:Exiled.Events.EventArgs.InteractingTeslaEventArgs"/> and <see cref="T:Exiled.Events.EventArgs.InteractingDoorEventArgs"/> event for SCP-079.
+            Adds the <see cref="T:Exiled.Events.EventArgs.InteractingTeslaEventArgs"/>, <see cref="T:Exiled.Events.EventArgs.InteractingDoorEventArgs"/>, <see cref="E:Exiled.Events.Handlers.Scp079.StartingSpeaker"/> and <see cref="E:Exiled.Events.Handlers.Scp079.StoppingSpeaker"/> event for SCP-079.
             </summary>
         </member>
         <member name="M:Exiled.Events.Patches.Events.Scp079.Interacting.Prefix(Scp079PlayerScript,System.String,UnityEngine.GameObject)">
@@ -3886,6 +4141,12 @@
             <param name="target">The target game object.</param>
             <returns>Returns a value indicating whether the original method has to be executed or not.</returns>
         </member>
+        <member name="T:Exiled.Events.Patches.Events.Scp096.AddingTarget">
+            <summary>
+            Patches <see cref="M:PlayableScps.Scp096.AddTarget(UnityEngine.GameObject)"/>.
+            Adds the <see cref="E:Exiled.Events.Handlers.Scp096.AddingTarget"/> event.
+            </summary>
+        </member>
         <member name="T:Exiled.Events.Patches.Events.Scp096.CalmingDown">
             <summary>
             Patches <see cref="M:PlayableScps.Scp096.EndEnrage"/>.
@@ -3896,6 +4157,12 @@
             <summary>
             Patches <see cref="M:PlayableScps.Scp096.Enrage"/>.
             Adds the <see cref="E:Exiled.Events.Handlers.Scp096.Enraging"/> event.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.Patches.Events.Scp096.StartPryingGate">
+            <summary>
+            Patches the <see cref="M:PlayableScps.Scp096.PryGate(Door)"/> method.
+            Adds the <see cref="E:Exiled.Events.Handlers.Scp096.StartPryingGate"/> event.
             </summary>
         </member>
         <member name="T:Exiled.Events.Patches.Events.Scp106.Containing">
@@ -4041,6 +4308,11 @@
         <member name="T:Exiled.Events.Patches.Generic.IndividualFriendlyFire">
             <summary>
             Patches <see cref="M:WeaponManager.GetShootPermission(CharacterClassManager,System.Boolean)"/>.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.Patches.Generic.Scp096MaxShield">
+            <summary>
+            Patches the <see cref="P:PlayableScps.Scp096.MaxShield"/> property.
             </summary>
         </member>
         <member name="T:Exiled.Events.Patches.Generic.Scp173BeingLooked">

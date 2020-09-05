@@ -57,3 +57,4 @@ C:\Users\franc\Documents\Visual Proyects\ZombieLunging-EXILED\ZombieLunging\bin\
 C:\Users\franc\Documents\Visual Proyects\ZombieLunging-EXILED\ZombieLunging\bin\Debug\Exiled.Loader.xml
 C:\Users\franc\Documents\Visual Proyects\ZombieLunging-EXILED\ZombieLunging\bin\Debug\Exiled.Permissions.xml
 C:\Users\franc\Documents\Visual Proyects\ZombieLunging-EXILED\ZombieLunging\bin\Debug\Exiled.Updater.xml
+C:\Users\franc\Documents\Visual Proyects\ZombieLunging-EXILED\ZombieLunging\bin\Debug\DissonanceVoip.dll
