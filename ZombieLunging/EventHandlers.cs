@@ -3,6 +3,7 @@ using Exiled.API.Extensions;
 using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using Object = UnityEngine.Object;
+using UnityEngine;
 
 namespace ZombieLunging
 {
@@ -13,22 +14,30 @@ namespace ZombieLunging
 
 		public void OnSetClass(ChangingRoleEventArgs ev)
 		{
-			if (ev.Player.Nickname == "Dedicated Server")return;
+			if (ev.Player.Nickname == "Dedicated Server") return;
 
-			PlayerSpeeds component1 = ev.Player.ReferenceHub.gameObject.GetComponent<PlayerSpeeds>();
-			if ((Object)component1 != (Object)null) component1.Destroy();
-			ev.Player.ReferenceHub.gameObject.AddComponent<PlayerSpeeds>();
+            if (ev.NewRole == RoleType.Scp0492) {
+                if(ev.Player.GameObject.TryGetComponent(out PlayerSpeeds speed)) {
+                    Log.Debug("Tried to add PlayerSpeeds component but player already has it.");
+                } else {
+                    Log.Debug("Added component to player.");
+                    ev.Player.GameObject.AddComponent<PlayerSpeeds>();
+                }
 
-			CustomZombie component = ev.Player.ReferenceHub.gameObject.GetComponent<CustomZombie>();
-			if (ev.NewRole != RoleType.Scp0492) return;
-			if ((Object)component != (Object)null) component.Destroy();
-			ev.Player.ReferenceHub.gameObject.AddComponent<CustomZombie>();
+                if(ev.Player.GameObject.TryGetComponent(out CustomZombie cz)) {
+                    Log.Debug("Tried to add CustomZombie component but player already has it.");
+                } else {
+                    Log.Debug("Added component to player.");
+                    ev.Player.GameObject.AddComponent<CustomZombie>();
+                }
+            }
 		}
 
 		public void OnConsoleCommand(SendingConsoleCommandEventArgs ev)
 		{
 			if (ev.Player.Role != RoleType.Scp0492) return;
-			if (ev.Name.ToLower() == "zr")
+
+			if (plugin.Config.command.Contains(ev.Name))
 			{
 				if (ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0)
 				{

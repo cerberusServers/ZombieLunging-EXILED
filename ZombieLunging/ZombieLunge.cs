@@ -213,9 +213,15 @@ namespace ZombieLunging
 		{
 			if (!(ev.Player.Id == playerReferenceHub.playerId)) return;
 			Destroy();
-		}
+        }
 
-		public void OnRoundRestart()
+        public void OnSetClass(ChangingRoleEventArgs ev) {
+            if(ev.Player.Id != playerReferenceHub.playerId)
+                return;
+            Destroy();
+        }
+
+        public void OnRoundRestart()
 		{
 			Destroy();
 		}
