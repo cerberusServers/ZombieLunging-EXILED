@@ -41,11 +41,13 @@ namespace ZombieLunging
 			{
 				if (ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0)
 				{
-					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(2, Plugin.instance.Config.LungeCooldownMessage.Replace("{time}",  Math.Round(ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown).ToString()));
+					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(1, Plugin.instance.Config.LungeCooldownMessage.Replace("{time}", Math.Round(ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown).ToString()));
+
+					Log.Info(ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0);
 				}
 				else if (!ev.Player.ReferenceHub.GetComponent<CustomZombie>().lunging)
 				{
-					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(5, Plugin.instance.Config.LungeMessage);
+					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(3, Plugin.instance.Config.LungeMessage);
 					ev.Player.ReferenceHub.GetComponent<CustomZombie>().ActivateSpeedUp();
 					ev.ReturnMessage = !string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage) ? Plugin.instance.Config.LungeMessage : "Has activado tu arremetimiento!";
 					ev.Color = "Green";
