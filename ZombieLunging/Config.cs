@@ -19,7 +19,7 @@ namespace ZombieLunging
 		public string LungeCooldownMessage { get; set; } = "Sigues cansado como para volver a correr, tienes que esperar <color=#ff0000>{time}</color> segundos para volver a correr.";
 		public int ColaIntensity { get; set; } = 4;
         public List<string> command { get; set; } = new List<string> {
-			"zr", "gay"
+			"zr", "zombierun"
 		};
 		
 	}
