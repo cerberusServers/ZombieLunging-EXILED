@@ -4,6 +4,7 @@ using Exiled.API.Features;
 using Exiled.Events.EventArgs;
 using Object = UnityEngine.Object;
 using UnityEngine;
+using MEC;
 
 namespace ZombieLunging
 {
@@ -17,19 +18,21 @@ namespace ZombieLunging
 			if (ev.Player.Nickname == "Dedicated Server") return;
 
             if (ev.NewRole == RoleType.Scp0492) {
-                if(ev.Player.GameObject.TryGetComponent(out PlayerSpeeds speed)) {
-                    Log.Debug("Tried to add PlayerSpeeds component but player already has it.");
-                } else {
-                    Log.Debug("Added component to player.");
-                    ev.Player.GameObject.AddComponent<PlayerSpeeds>();
-                }
+                Timing.CallDelayed(1.5f, () => {
+                    if(ev.Player.GameObject.TryGetComponent(out PlayerSpeeds speed)) {
+                        Log.Debug("Tried to add PlayerSpeeds component but player already has it.");
+                    } else {
+                        Log.Debug("Added component to player.");
+                        ev.Player.GameObject.AddComponent<PlayerSpeeds>();
+                    }
 
-                if(ev.Player.GameObject.TryGetComponent(out CustomZombie cz)) {
-                    Log.Debug("Tried to add CustomZombie component but player already has it.");
-                } else {
-                    Log.Debug("Added component to player.");
-                    ev.Player.GameObject.AddComponent<CustomZombie>();
-                }
+                    if(ev.Player.GameObject.TryGetComponent(out CustomZombie cz)) {
+                        Log.Debug("Tried to add CustomZombie component but player already has it.");
+                    } else {
+                        Log.Debug("Added component to player.");
+                        ev.Player.GameObject.AddComponent<CustomZombie>();
+                    }
+                });
             }
 		}
 
@@ -37,18 +40,25 @@ namespace ZombieLunging
 		{
 			if (ev.Player.Role != RoleType.Scp0492) return;
 
-			if (plugin.Config.command.Contains(ev.Name))
-			{
-				if (ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0)
-				{
-					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(1, Plugin.instance.Config.LungeCooldownMessage.Replace("{time}", Math.Round(ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown).ToString()));
+			if (plugin.Config.command.Contains(ev.Name)) {
+                CustomZombie cz;
 
-					Log.Info(ev.Player.ReferenceHub.GetComponent<CustomZombie>().cooldown > 0);
+                if(ev.Player.GameObject.TryGetComponent<CustomZombie>(out cz)) {
+                } else {
+                    Log.Debug("Tried to get PlayerSpeeds component but couldn't be found.");
+                    ev.Player.GameObject.AddComponent<CustomZombie>();
+                }
+
+                if (cz.cooldown > 0)
+				{
+					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(1, Plugin.instance.Config.LungeCooldownMessage.Replace("{time}", Math.Round(cz.cooldown).ToString()));
+
+					Log.Info(cz.cooldown > 0);
 				}
-				else if (!ev.Player.ReferenceHub.GetComponent<CustomZombie>().lunging)
+				else if (!cz.lunging)
 				{
 					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(3, Plugin.instance.Config.LungeMessage);
-					ev.Player.ReferenceHub.GetComponent<CustomZombie>().ActivateSpeedUp();
+					cz.ActivateSpeedUp();
 					ev.ReturnMessage = !string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage) ? Plugin.instance.Config.LungeMessage : "Has activado tu arremetimiento!";
 					ev.Color = "Green";
 				}

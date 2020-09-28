@@ -57,6 +57,246 @@
             Indicates that the player has been authenticated through an unknown provider.
             </summary>
         </member>
+        <member name="T:Exiled.API.Enums.BarrelType">
+            <summary>
+            Possible barrel weapon modifications.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.BarrelType.None">
+            <summary>
+            No barrel
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.BarrelType.Suppressor">
+            <summary>
+            Suppressor.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.BarrelType.Silencer">
+            <summary>
+            Silencer.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.BarrelType.MuzzleBrake">
+            <summary>
+            Muzzle Brake.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.BarrelType.HeavyBarrel">
+            <summary>
+            Heavy Barrel.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.BarrelType.MuzzleBooster">
+            <summary>
+            Muzzle Booster.
+            </summary>
+        </member>
+        <member name="T:Exiled.API.Enums.DoorType">
+            <summary>
+            Unique identifier for the different types of doors.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp012">
+            <summary>
+            Represents the 012 door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp012Bottom">
+            <summary>
+            Represents the 012_BOTTOM door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp012Locker">
+            <summary>
+            Represents the 012_LOCKER door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp049Armory">
+            <summary>
+            Represents the 049_ARMORY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp079First">
+            <summary>
+            Represents the 079_FIRST door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp079Second">
+            <summary>
+            Represents the 079_SECOND door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp096">
+            <summary>
+            Represents the 096 door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp106Bottom">
+            <summary>
+            Represents the 106_BOTTOM door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp106Primary">
+            <summary>
+            Represents the 106_PRIMARY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp106Secondary">
+            <summary>
+            Represents the 106_SECONDARY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp173">
+            <summary>
+            Represents the 173 door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp173Armory">
+            <summary>
+            Represents the 173_ARMORY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp173Bottom">
+            <summary>
+            Represents the 173_BOTTOM door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp372">
+            <summary>
+            Represents the 372 door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Scp914">
+            <summary>
+            Represents the 914 door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Airlocks">
+            <summary>
+            Represents the Airlocks door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.CheckpointEntrance">
+            <summary>
+            Represents the CHECKPOINT_ENT door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.CheckpointLczA">
+            <summary>
+            Represents the CHECKPOINT_LCZ_A door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.CheckpointLczB">
+            <summary>
+            Represents the CHECKPOINT_LCZ_B door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.ContDoor">
+            <summary>
+            Represents the ContDoor door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.EntranceDoor">
+            <summary>
+            Represents the EntrDoor door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Escape">
+            <summary>
+            Represents the ESCAPE door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.EscapeInner">
+            <summary>
+            Represents the ESCAPE_INNER door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.GateA">
+            <summary>
+            Represents the GATE_A door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.GateB">
+            <summary>
+            Represents the GATE_B door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.HczArmory">
+            <summary>
+            Represents the HCZ_ARMORY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.HeavyContainmentDoor">
+            <summary>
+            Represents the HeavyContainmentDoor door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.HID">
+            <summary>
+            Represents the HID door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.HIDLeft">
+            <summary>
+            Represents the HID_LEFT door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.HIDRight">
+            <summary>
+            Represents the HID_RIGHT door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.Intercom">
+            <summary>
+            Represents the INTERCOM door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.LczArmory">
+            <summary>
+            Represents the LCZ_ARMORY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.LczCafe">
+            <summary>
+            Represents the LCZ_CAFE door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.LczWc">
+            <summary>
+            Represents the LCZ_WC door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.LightContainmentDoor">
+            <summary>
+            Represents the LightContainmentDoor door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.NukeArmory">
+            <summary>
+            Represents the NUKE_ARMORY door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.NukeSurface">
+            <summary>
+            Represents the NUKE_SURFACE door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.PrisonDoor">
+            <summary>
+            Represents the PrisonDoor door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.SurfaceGate">
+            <summary>
+            Represents the SURFACE_GATE door.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.DoorType.UnknownDoor">
+            <summary>
+            Represents an unknown door.
+            </summary>
+        </member>
         <member name="T:Exiled.API.Enums.ElevatorType">
             <summary>
             The unique type of elevator.
@@ -145,6 +385,36 @@
         <member name="F:Exiled.API.Enums.LeadingTeam.Draw">
             <summary>
             Represents a draw.
+            </summary>
+        </member>
+        <member name="T:Exiled.API.Enums.OtherType">
+            <summary>
+            Possible other weapon modifications.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.OtherType.None">
+            <summary>
+            No other
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.OtherType.Flashlight">
+            <summary>
+            Flashlight.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.OtherType.GyroscopicStabilizer">
+            <summary>
+            Gyroscopic Stabilizer.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.OtherType.AmmoCounter">
+            <summary>
+            Ammo Counter.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.OtherType.Laser">
+            <summary>
+            Laser.
             </summary>
         </member>
         <member name="T:Exiled.API.Enums.PluginPriority">
@@ -494,6 +764,46 @@
             <see cref="F:Team.RIP"/>.
             </summary>
         </member>
+        <member name="T:Exiled.API.Enums.SightType">
+            <summary>
+            Possible sight weapon modifications.
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.None">
+            <summary>
+            No sight
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.Collimator">
+            <summary>
+            Collimator
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.HoloSight">
+            <summary>
+            Holo Sight
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.BlueDotSight">
+            <summary>
+            Blue Dot Sight
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.RedDot">
+            <summary>
+            Red Dot
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.NightVisionSight">
+            <summary>
+            Night Vision Sight
+            </summary>
+        </member>
+        <member name="F:Exiled.API.Enums.SightType.SniperScope">
+            <summary>
+            Sniper Scope
+            </summary>
+        </member>
         <member name="T:Exiled.API.Enums.ZoneType">
             <summary>
             Facility zone types.
@@ -522,6 +832,24 @@
         <member name="F:Exiled.API.Enums.ZoneType.Unspecified">
             <summary>
             An unknown zone.
+            </summary>
+        </member>
+        <member name="T:Exiled.API.Extensions.DoorTypeExtension">
+            <summary>
+            Contains an extension method to get <see cref="T:Exiled.API.Enums.DoorType"/> from <see cref="T:Door"/>.
+            Internal class <see cref="M:Exiled.API.Extensions.DoorTypeExtension.RegisterDoorTypesOnLevelLoad"/> to cache the <see cref="T:Exiled.API.Enums.DoorType"/> on level load.
+            </summary>
+        </member>
+        <member name="M:Exiled.API.Extensions.DoorTypeExtension.Type(Door)">
+            <summary>
+            Gets the <see cref="T:Exiled.API.Enums.DoorType"/>.
+            </summary>
+            <param name="door">The Door to check.</param>
+            <returns>The <see cref="T:Exiled.API.Enums.DoorType"/>.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.DoorTypeExtension.RegisterDoorTypesOnLevelLoad">
+            <summary>
+            Gets all the <see cref="T:Exiled.API.Enums.DoorType"/> values for for the <see cref="T:Door"/> instances using <see cref="F:Door.DoorName"/> and <see cref="T:UnityEngine.GameObject"/> name.
             </summary>
         </member>
         <member name="T:Exiled.API.Extensions.Item">
@@ -615,6 +943,54 @@
             <param name="type">The item to be checked.</param>
             <returns>Returns whether the <see cref="T:ItemType"/> is a keycard or not.</returns>
         </member>
+        <member name="M:Exiled.API.Extensions.Item.GetSight(Exiled.API.Features.Player,Inventory.SyncItemInfo)">
+            <summary>
+            Gets sight modification of the weapon.
+            </summary>
+            <param name="player">The player instance.</param>
+            <param name="weapon">The weapon with attachment.</param>
+            <returns>Returns <see cref="T:Exiled.API.Enums.SightType"/>.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.Item.SetSight(Exiled.API.Features.Player,Inventory.SyncItemInfo,Exiled.API.Enums.SightType)">
+            <summary>
+            Sets sight modification of the weapon.
+            </summary>
+            <param name="player">The player instance.</param>
+            <param name="weapon">The weapon with attachment.</param>
+            <param name="type">Type of the sight.</param>
+        </member>
+        <member name="M:Exiled.API.Extensions.Item.GetBarrel(Exiled.API.Features.Player,Inventory.SyncItemInfo)">
+            <summary>
+            Gets barrel modification of the weapon.
+            </summary>
+            <param name="player">The player instance.</param>
+            <param name="weapon">The weapon with attachment.</param>
+            <returns>Returns <see cref="T:Exiled.API.Enums.BarrelType"/>.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.Item.SetBarrel(Exiled.API.Features.Player,Inventory.SyncItemInfo,Exiled.API.Enums.BarrelType)">
+            <summary>
+            Sets barrel modification of the weapon.
+            </summary>
+            <param name="player">The player instance.</param>
+            <param name="weapon">The weapon with attachment.</param>
+            <param name="type">Type of the barrel.</param>
+        </member>
+        <member name="M:Exiled.API.Extensions.Item.GetOther(Exiled.API.Features.Player,Inventory.SyncItemInfo)">
+            <summary>
+            Gets other modification of the weapon.
+            </summary>
+            <param name="player">The player instance.</param>
+            <param name="weapon">The weapon with attachment.</param>
+            <returns>Returns <see cref="T:Exiled.API.Enums.OtherType"/>.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.Item.SetOther(Exiled.API.Features.Player,Inventory.SyncItemInfo,Exiled.API.Enums.OtherType)">
+            <summary>
+            Sets other modification of the weapon.
+            </summary>
+            <param name="player">The player instance.</param>
+            <param name="weapon">The weapon with attachment.</param>
+            <param name="type">Type of the other.</param>
+        </member>
         <member name="T:Exiled.API.Extensions.Reflection">
             <summary>
             A set of extensions for <see cref="T:System.Type"/>.
@@ -704,6 +1080,27 @@
             <param name="enumerable">The instance.</param>
             <param name="showIndex">Indicates whether the enumerator index should be shown or not.</param>
             <returns>Returns the converted <see cref="T:System.Collections.Generic.IEnumerable`1"/>.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.String.RemoveBracketsOnEndOfName(System.String)">
+            <summary>
+            Removes the prefab-generated brackets (#) on <see cref="T:UnityEngine.GameObject"/> names.
+            </summary>
+            <param name="name">Name of the <see cref="T:UnityEngine.GameObject"/>.</param>
+            <returns>Name without brackets.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.String.SplitCamelCase(System.String)">
+            <summary>
+            Splits camel case string to space-separated words. Ex: SomeCamelCase -> Some Camel Case.
+            </summary>
+            <param name="input">Camel case string.</param>
+            <returns>Splitted string.</returns>
+        </member>
+        <member name="M:Exiled.API.Extensions.String.RemoveSpaces(System.String)">
+            <summary>
+            Removes all space symbols from string.
+            </summary>
+            <param name="input">Input string.</param>
+            <returns>String without spaces.</returns>
         </member>
         <member name="T:Exiled.API.Features.Badge">
             <summary>
@@ -1366,6 +1763,11 @@
             Gets or sets a value indicating whether or not the player's badge is hidden.
             </summary>
         </member>
+        <member name="P:Exiled.API.Features.Player.IsUsingStamina">
+            <summary>
+            Gets or sets a value indicating whether player should use stamina system.
+            </summary>
+        </member>
         <member name="M:Exiled.API.Features.Player.Get(Team)">
             <summary>
             Gets a <see cref="T:Exiled.API.Features.Player"/> <see cref="T:System.Collections.Generic.IEnumerable`1"/> filtered by team.
@@ -1742,6 +2144,11 @@
             Gets a <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Exiled.API.Features.Player"/> in the <see cref="T:Exiled.API.Features.Room"/>.
             </summary>
         </member>
+        <member name="P:Exiled.API.Features.Room.Doors">
+            <summary>
+            Gets a <see cref="T:System.Collections.Generic.IEnumerable`1"/> of <see cref="T:Door"/> in the <see cref="T:Exiled.API.Features.Room"/>.
+            </summary>
+        </member>
         <member name="M:Exiled.API.Features.Room.TurnOffLights(System.Single)">
             <summary>
             Flickers the room's lights off for a duration.
@@ -1796,6 +2203,21 @@
         <member name="P:Exiled.API.Features.Scp096.MaxShield">
             <summary>
             Gets or Sets a value indicating the max shield amount Scp096 can have.
+            </summary>
+        </member>
+        <member name="P:Exiled.API.Features.Scp096.TurnedPlayers">
+            <summary>
+            Gets a list of player ids who will be turned away from SCP-096.
+            </summary>
+        </member>
+        <member name="T:Exiled.API.Features.Scp173">
+            <summary>
+            A set of tools to modify SCP-173's behaviour.
+            </summary>
+        </member>
+        <member name="P:Exiled.API.Features.Scp173.TurnedPlayers">
+            <summary>
+            Gets a list of player ids who will be turned away from SCP-173.
             </summary>
         </member>
         <member name="T:Exiled.API.Features.Scp914">

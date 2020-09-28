@@ -190,6 +190,11 @@
         <member name="M:Exiled.Loader.Features.Configs.ValidatingNodeDeserializer.Deserialize(YamlDotNet.Core.IParser,System.Type,System.Func{YamlDotNet.Core.IParser,System.Type,System.Object},System.Object@)">
             <inheritdoc/>
         </member>
+        <member name="T:Exiled.Loader.Features.MultiAdminFeatures">
+            <summary>
+            This class implements all possible MultiAdmin features.
+            </summary>
+        </member>
         <member name="T:Exiled.Loader.Loader">
             <summary>
             Used to handle plugins.

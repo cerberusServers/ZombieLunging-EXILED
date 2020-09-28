@@ -28,7 +28,8 @@ namespace ZombieLunging
 
 		private void Awake()
 		{
-			Exiled.Events.Handlers.Player.Hurting += OnPlayerHurt;
+			Exiled.Events.Handlers.Player.Hurting += AbilitySlowdown;
+			Exiled.Events.Handlers.Player.Hurting += SpeedProtect;
 			Exiled.Events.Handlers.Player.Left += OnPlayerLeave;
 			Exiled.Events.Handlers.Server.RestartingRound += OnRoundRestart;
 			Exiled.Events.Handlers.Player.ChangingRole += OnSetClass;
@@ -41,7 +42,8 @@ namespace ZombieLunging
 
 		public void Destroy()
 		{
-			Exiled.Events.Handlers.Player.Hurting -= OnPlayerHurt;
+			Exiled.Events.Handlers.Player.Hurting -= AbilitySlowdown;
+			Exiled.Events.Handlers.Player.Hurting -= SpeedProtect;
 			Exiled.Events.Handlers.Player.Left -= OnPlayerLeave;
 			Exiled.Events.Handlers.Server.RestartingRound -= OnRoundRestart;
 			Exiled.Events.Handlers.Player.ChangingRole -= OnSetClass;
@@ -68,15 +70,30 @@ namespace ZombieLunging
 			forceSpeedUpCoroutine = Timing.RunCoroutine(ForceSpeedUp(Plugin.instance.Config.LungeTime, 0.1f), Segment.FixedUpdate);
 		}
 
-		public void OnPlayerHurt(HurtingEventArgs ev)
+		public void SpeedProtect(HurtingEventArgs ev)
 		{
-			if (ev.Target.Id == playerReferenceHub.playerId && ev.Target.Role == RoleType.Scp0492 && ev.DamageType == DamageTypes.Scp207) ev.Amount = 0.0f;
+			if (ev.Target.Id == playerReferenceHub.playerId && ev.Target.Role == RoleType.Scp0492 && ev.DamageType == DamageTypes.Scp207)
+				ev.Amount = 0.0f;
+		}
 
-			if (ev.Attacker.Id == playerReferenceHub.playerId && ev.Target.Id != playerReferenceHub.playerId && lunging)
+		public void AbilitySlowdown(HurtingEventArgs ev)
+		{
+			if (ev.Attacker.ReferenceHub != playerReferenceHub || ev.DamageType == DamageTypes.Scp207)
+				return;
+
+			if (lunging)
 			{
 				victims++;
-				ev.Target.ReferenceHub.GetComponent<PlayerSpeeds>().ActivateSlowdown();
-				if (!string.IsNullOrEmpty(Plugin.instance.Config.VictimMessage)) ev.Target.Broadcast(7, Plugin.instance.Config.VictimMessage);
+				if (ev.Target.GameObject.TryGetComponent(out PlayerSpeeds speeds))
+				{
+					speeds.ActivateSlowdown();
+					if (!string.IsNullOrEmpty(Plugin.instance.Config.VictimMessage))
+						ev.Target.Broadcast(7, Plugin.instance.Config.VictimMessage);
+				}
+				else
+				{
+					Log.Error("Couldn't find PlayerSpeeds component");
+				};
 			}
 		}
 

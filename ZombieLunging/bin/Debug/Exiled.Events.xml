@@ -225,6 +225,34 @@
             Gets or sets a value indicating whether the event can be executed or not.
             </summary>
         </member>
+        <member name="T:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs">
+            <summary>
+            Contains all informations before a player activates the workstation.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs.#ctor(Exiled.API.Features.Player,WorkStation,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs"/> class.
+            </summary>
+            <param name="player"><inheritdoc cref="P:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs.Player"/></param>
+            <param name="station"><inheritdoc cref="T:WorkStation"/></param>
+            <param name="isAllowed"><inheritdoc cref="P:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs.IsAllowed"/></param>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs.Player">
+            <summary>
+            Gets the player who's trying to activate the workstation.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs.Workstation">
+            <summary>
+            Gets a workstation.
+            </summary>
+        </member>
+        <member name="P:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs.IsAllowed">
+            <summary>
+            Gets or sets a value indicating whether the event can be executed or not.
+            </summary>
+        </member>
         <member name="T:Exiled.Events.EventArgs.AddingTargetEventArgs">
             <summary>
             Contains all information before adding a target to SCP-096.
@@ -636,6 +664,19 @@
             <summary>
             Gets or sets a value indicating whether the event can be executed or not.
             </summary>
+        </member>
+        <member name="T:Exiled.Events.EventArgs.DeactivatingWorkstationEventArgs">
+            <summary>
+            Contains all informations before a player activates the workstation.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.EventArgs.DeactivatingWorkstationEventArgs.#ctor(Exiled.API.Features.Player,WorkStation,System.Boolean)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.DeactivatingWorkstationEventArgs"/> class.
+            </summary>
+            <param name="player"><inheritdoc cref="T:Exiled.API.Features.Player"/></param>
+            <param name="station"><inheritdoc cref="N:Exiled.Permissions"/></param>
+            <param name="isAllowed">Indicates whether the event can be executed or not.</param>
         </member>
         <member name="T:Exiled.Events.EventArgs.DecontaminatingEventArgs">
             <summary>
@@ -2286,14 +2327,14 @@
         </member>
         <member name="T:Exiled.Events.EventArgs.StartingEventArgs">
             <summary>
-            Contains all informations before the SCP-914 machine upgrades items inside it.
+            Contains all informations before starting the warhead.
             </summary>
         </member>
         <member name="M:Exiled.Events.EventArgs.StartingEventArgs.#ctor(Exiled.API.Features.Player,System.Boolean)">
             <summary>
             Initializes a new instance of the <see cref="T:Exiled.Events.EventArgs.StartingEventArgs"/> class.
             </summary>
-            <param name="player">The player who's going to stop the warhead.</param>
+            <param name="player">The player who's going to start the warhead.</param>
             <param name="isAllowed">Indicating whether the event can be executed or not.</param>
         </member>
         <member name="T:Exiled.Events.EventArgs.StartingRecallEventArgs">
@@ -2736,6 +2777,11 @@
             Gets a list of types and methods for which EXILED patches should not be run.
             </summary>
         </member>
+        <member name="P:Exiled.Events.Events.DisabledPatchesHashSet">
+            <summary>
+            Gets a set of types and methods for which EXILED patches should not be run.
+            </summary>
+        </member>
         <member name="P:Exiled.Events.Events.Priority">
             <inheritdoc/>
         </member>
@@ -3114,6 +3160,16 @@
             Invoked before receiving an effect.
             </summary>
         </member>
+        <member name="E:Exiled.Events.Handlers.Player.ActivatingWorkstation">
+            <summary>
+            Invoked before activating workstation.
+            </summary>
+        </member>
+        <member name="E:Exiled.Events.Handlers.Player.DeactivatingWorkstation">
+            <summary>
+            Invoked before deactivating workstation.
+            </summary>
+        </member>
         <member name="M:Exiled.Events.Handlers.Player.OnPreAuthenticating(Exiled.Events.EventArgs.PreAuthenticatingEventArgs)">
             <summary>
             Invoked before pre-authenticating a player.
@@ -3390,22 +3446,17 @@
             </summary>
             <param name="ev">The <see cref="T:Exiled.Events.EventArgs.ReceivingEffectEventArgs"/> instance.</param>
         </member>
-        <member name="T:Exiled.Events.Handlers.Round">
+        <member name="M:Exiled.Events.Handlers.Player.OnActivatingWorkstation(Exiled.Events.EventArgs.ActivatingWorkstationEventArgs)">
             <summary>
-            Handles some round clean-up events and some others related to players.
+            Called before activating workstation.
             </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.ActivatingWorkstationEventArgs"/> instance.</param>
         </member>
-        <member name="M:Exiled.Events.Handlers.Round.OnWaitingForPlayers">
-            <inheritdoc cref="M:Exiled.Events.Handlers.Server.OnWaitingForPlayers"/>
-        </member>
-        <member name="M:Exiled.Events.Handlers.Round.OnRestartingRound">
-            <inheritdoc cref="M:Exiled.Events.Handlers.Server.OnRestartingRound"/>
-        </member>
-        <member name="M:Exiled.Events.Handlers.Round.OnRoundStarted">
-            <inheritdoc cref="M:Exiled.Events.Handlers.Server.OnRoundStarted"/>
-        </member>
-        <member name="M:Exiled.Events.Handlers.Round.OnChangingRole(Exiled.Events.EventArgs.ChangingRoleEventArgs)">
-            <inheritdoc cref="M:Exiled.Events.Handlers.Player.OnChangingRole(Exiled.Events.EventArgs.ChangingRoleEventArgs)"/>
+        <member name="M:Exiled.Events.Handlers.Player.OnDeactivatingWorkstation(Exiled.Events.EventArgs.DeactivatingWorkstationEventArgs)">
+            <summary>
+            Called before deactivating workstation.
+            </summary>
+            <param name="ev">The <see cref="T:Exiled.Events.EventArgs.DeactivatingWorkstationEventArgs"/> instance.</param>
         </member>
         <member name="T:Exiled.Events.Handlers.Scp049">
             <summary>
@@ -3820,6 +3871,23 @@
             Called after the warhead has been detonated.
             </summary>
         </member>
+        <member name="T:Exiled.Events.InternalHandlers.Round">
+            <summary>
+            Handles some round clean-up events and some others related to players.
+            </summary>
+        </member>
+        <member name="M:Exiled.Events.InternalHandlers.Round.OnWaitingForPlayers">
+            <inheritdoc cref="M:Exiled.Events.Handlers.Server.OnWaitingForPlayers"/>
+        </member>
+        <member name="M:Exiled.Events.InternalHandlers.Round.OnRestartingRound">
+            <inheritdoc cref="M:Exiled.Events.Handlers.Server.OnRestartingRound"/>
+        </member>
+        <member name="M:Exiled.Events.InternalHandlers.Round.OnRoundStarted">
+            <inheritdoc cref="M:Exiled.Events.Handlers.Server.OnRoundStarted"/>
+        </member>
+        <member name="M:Exiled.Events.InternalHandlers.Round.OnChangingRole(Exiled.Events.EventArgs.ChangingRoleEventArgs)">
+            <inheritdoc cref="M:Exiled.Events.Handlers.Player.OnChangingRole(Exiled.Events.EventArgs.ChangingRoleEventArgs)"/>
+        </member>
         <member name="T:Exiled.Events.Patches.Events.Map.AnnouncingDecontamination">
             <summary>
             Patches <see cref="M:LightContainmentZoneDecontamination.DecontaminationController.UpdateSpeaker(System.Boolean)"/>.
@@ -3880,6 +3948,12 @@
             Adds the <see cref="E:Exiled.Events.Handlers.Player.ActivatingWarheadPanel"/> event.
             </summary>
         </member>
+        <member name="T:Exiled.Events.Patches.Events.Player.ActivatingWorkstation">
+            <summary>
+            Patch the <see cref="M:WorkStation.ConnectTablet(UnityEngine.GameObject)"/>.
+            Adds the <see cref="E:Exiled.Events.Handlers.Player.ActivatingWorkstation"/> event.
+            </summary>
+        </member>
         <member name="T:Exiled.Events.Patches.Events.Player.Banned">
             <summary>
             Patches <see cref="M:BanHandler.IssueBan(BanDetails,BanHandler.BanType)"/>.
@@ -3908,6 +3982,12 @@
             <summary>
             Patches <see cref="M:CharacterClassManager.SetPlayersClass(RoleType,UnityEngine.GameObject,System.Boolean,System.Boolean)"/>.
             Adds the <see cref="E:Exiled.Events.Handlers.Player.ChangingRole"/> and <see cref="E:Exiled.Events.Handlers.Player.Escaping"/> events.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.Patches.Events.Player.DeactivatingWorkstation">
+            <summary>
+            Patch the <see cref="M:WorkStation.UnconnectTablet(UnityEngine.GameObject)"/>.
+            Adds the <see cref="E:Exiled.Events.Handlers.Player.ActivatingWorkstation"/> event.
             </summary>
         </member>
         <member name="T:Exiled.Events.Patches.Events.Player.Died">
@@ -4323,6 +4403,11 @@
         <member name="T:Exiled.Events.Patches.Generic.ServerNamePatch">
             <summary>
             Patch the <see cref="M:ServerConsole.ReloadServerName"/>.
+            </summary>
+        </member>
+        <member name="T:Exiled.Events.Patches.Generic.StaminaUsagePatch">
+            <summary>
+            Patches <see cref="M:Stamina.ProcessStamina"/>.
             </summary>
         </member>
     </members>
