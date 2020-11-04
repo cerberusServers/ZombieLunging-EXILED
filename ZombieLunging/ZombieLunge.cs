@@ -8,6 +8,7 @@ using CustomPlayerEffects;
 using Exiled.API.Features;
 using Exiled.Events;
 using Exiled.Events.EventArgs;
+using LightContainmentZoneDecontamination;
 using MEC;
 using UnityEngine;
 
