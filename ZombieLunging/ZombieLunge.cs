@@ -68,7 +68,7 @@ namespace ZombieLunging
 			victims = 0;
 			lunging = true;
 
-			forceSpeedUpCoroutine = Timing.RunCoroutine(ForceSpeedUp(Plugin.instance.Config.LungeTime, 0.1f), Segment.FixedUpdate);
+			forceSpeedUpCoroutine = Timing.RunCoroutine(ForceSpeedUp(Plugin.instance.Config.LungeTime, 0.6f), Segment.FixedUpdate);
 		}
 
 		public void SpeedProtect(HurtingEventArgs ev)
@@ -128,7 +128,7 @@ namespace ZombieLunging
 			playerReferenceHub.playerEffectsController.DisableEffect<SinkHole>();
 			lunging = false;
 			cooldown = Plugin.instance.Config.LungeCooldown;
-			Timing.RunCoroutine(DecreaseCooldown(Plugin.instance.Config.LungeCooldown, 0.1f));
+			Timing.RunCoroutine(DecreaseCooldown(Plugin.instance.Config.LungeCooldown, 0.6f));
 		}
 
 		private IEnumerator<float> DecreaseCooldown(float totalWaitTime, float interval)
@@ -166,7 +166,7 @@ namespace ZombieLunging
 			{
 				lunging = false;
 				cooldown = Plugin.instance.Config.LungeCooldown;
-				Timing.RunCoroutine(DecreaseCooldown(Plugin.instance.Config.LungeCooldown, 0.1f));
+				Timing.RunCoroutine(DecreaseCooldown(Plugin.instance.Config.LungeCooldown, 0.6f));
 			}
 		}
 

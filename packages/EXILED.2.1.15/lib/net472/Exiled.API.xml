@@ -1215,6 +1215,11 @@
             A set of tools to use in-game C.A.S.S.I.E more easily.
             </summary>
         </member>
+        <member name="P:Exiled.API.Features.Cassie.IsSpeaking">
+            <summary>
+            Gets a value indicating whether or not a C.A.S.S.I.E announcement is currently playing. Does not include decontamination messages.
+            </summary>
+        </member>
         <member name="M:Exiled.API.Features.Cassie.Message(System.String,System.Boolean,System.Boolean)">
             <summary>
             Reproduce a C.A.S.S.I.E message.
@@ -2097,6 +2102,12 @@
             <summary>
              Disables all status affects on the player.
             </summary>
+        </member>
+        <member name="M:Exiled.API.Features.Player.DisableEffect``1">
+            <summary>
+            Disables a status effect on this player.
+            </summary>
+            <typeparam name="T">The <see cref="T:CustomPlayerEffects.PlayerEffect"/> to disale.</typeparam>
         </member>
         <member name="M:Exiled.API.Features.Player.EnableEffect``1(System.Single,System.Boolean)">
             <summary>
