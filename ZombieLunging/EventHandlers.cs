@@ -52,16 +52,17 @@ namespace ZombieLunging
 			{
 				CustomZombie cz;
 
-				if (ev.Player.GameObject.TryGetComponent<CustomZombie>(out cz))
+				if (ev.Player.GameObject.TryGetComponent(out cz))
 				{
 				}
 				else
 				{
 					Log.Debug("Tried to get PlayerSpeeds component but couldn't be found.");
-					ev.Player.GameObject.AddComponent<CustomZombie>();
+					cz = ev.Player.GameObject.AddComponent<CustomZombie>();
 				}
 
-				if (cz.cooldown > 0)
+                if(cz == null)
+					if (cz.cooldown > 0)
 				{
 					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage))
 					{
