@@ -72,12 +72,6 @@ C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Syste
 C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\System.Memory.dll
 C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\System.Numerics.Vectors.dll
 C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\System.Runtime.CompilerServices.Unsafe.dll
-C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Exiled.API.xml
-C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Exiled.Bootstrap.xml
-C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Exiled.Events.xml
-C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Exiled.Loader.xml
-C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Exiled.Permissions.xml
-C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\bin\Debug\Exiled.Updater.xml
 C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\obj\Debug\ZombieLunging.csprojAssemblyReference.cache
 C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\obj\Debug\ZombieLunging.csproj.CoreCompileInputs.cache
 C:\Users\franc\Documents\Visual Proyects\ZombieRun\ZombieLunging\obj\Debug\ZombieLunging.csproj.CopyComplete
