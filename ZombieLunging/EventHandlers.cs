@@ -22,17 +22,17 @@ namespace ZombieLunging
 				Timing.CallDelayed(1.5f, () => {
 					if (ev.Player.GameObject.TryGetComponent(out PlayerSpeeds speed))
 					{
-						if (plugin.Config.IsDebug)Log.Debug("Tried to add PlayerSpeeds component but player already has it.");
+						if (plugin.Config.IsDebug) Log.Debug("Tried to add PlayerSpeeds component but player already has it.");
 					}
 					else
 					{
-						if (plugin.Config.IsDebug){ Log.Debug("Added component to player."); }
+						if (plugin.Config.IsDebug) { Log.Debug("Added component to player."); }
 						ev.Player.GameObject.AddComponent<PlayerSpeeds>();
 					}
 
 					if (ev.Player.GameObject.TryGetComponent(out CustomZombie cz))
 					{
-						if(plugin.Config.IsDebug)Log.Debug("Tried to add CustomZombie component but player already has it.");
+						if (plugin.Config.IsDebug) Log.Debug("Tried to add CustomZombie component but player already has it.");
 					}
 					else
 					{
@@ -46,10 +46,12 @@ namespace ZombieLunging
 
 		public void OnConsoleCommand(SendingConsoleCommandEventArgs ev)
 		{
+			Log.Debug("A 1");
 			if (ev.Player.Role != RoleType.Scp0492) return;
 
-			if (plugin.Config.command.Contains(ev.Name))
+			if (ev.Name.ToLower() == "zr")
 			{
+				Log.Debug("A 2");
 				CustomZombie cz;
 
 				if (ev.Player.GameObject.TryGetComponent(out cz))
@@ -61,30 +63,30 @@ namespace ZombieLunging
 					cz = ev.Player.GameObject.AddComponent<CustomZombie>();
 				}
 
-                if(cz == null)
+				if (cz == null)
 					if (cz.cooldown > 0)
-				{
-					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage))
 					{
-						ev.Player.ClearBroadcasts();
-						ev.Player.Broadcast(1, Plugin.instance.Config.LungeCooldownMessage.Replace("{time}", Math.Round(cz.cooldown).ToString()));
+						if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage))
+						{
+							ev.Player.ClearBroadcasts();
+							ev.Player.Broadcast(1, Plugin.instance.Config.LungeCooldownMessage.Replace("{time}", Math.Round(cz.cooldown).ToString()));
 
+						}
+
+						if (plugin.Config.IsDebug) Log.Info(cz.cooldown > 0);
 					}
-
-					if(plugin.Config.IsDebug)Log.Info(cz.cooldown > 0);
-				}
-				else if (!cz.lunging)
-				{
-					if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(3, Plugin.instance.Config.LungeMessage);
-					cz.ActivateSpeedUp();
-					ev.ReturnMessage = !string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage) ? Plugin.instance.Config.LungeMessage : "Has activado tu arremetimiento!";
-					ev.Color = "Green";
-				}
-				else
-				{
-					ev.ReturnMessage = "Estas listo para arremeter de nuevo!";
-					ev.Color = "Red";
-				}
+					else if (!cz.lunging)
+					{
+						if (!string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage)) ev.Player.Broadcast(3, Plugin.instance.Config.LungeMessage);
+						cz.ActivateSpeedUp();
+						ev.ReturnMessage = !string.IsNullOrEmpty(Plugin.instance.Config.LungeMessage) ? Plugin.instance.Config.LungeMessage : "Has activado tu arremetimiento!";
+						ev.Color = "Green";
+					}
+					else
+					{
+						ev.ReturnMessage = "Estas listo para arremeter de nuevo!";
+						ev.Color = "Red";
+					}
 			}
 		}
 	}
